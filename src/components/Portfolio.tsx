@@ -278,8 +278,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenProject }) => {
         className={`fixed z-50 bg-[#ECEAE6] transition-all duration-300 ease-in-out select-none
           ${
             isScrolled && !isLogoExpanded
-              ? 'top-3 left-4 sm:top-3 sm:left-6 w-10 h-10 rounded-full shadow-md border border-black/10 flex items-center justify-center cursor-pointer hover:shadow-lg hover:scale-110'
-              : 'top-1 left-4 sm:top-2 sm:left-8 w-20 h-20 sm:w-28 sm:h-28 rounded-xl'
+              ? 'top-2 left-3 sm:top-3 sm:left-6 w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-md border border-black/10 flex items-center justify-center cursor-pointer hover:shadow-lg hover:scale-110'
+              : 'top-1 left-3 sm:top-2 sm:left-8 w-14 h-14 sm:w-24 sm:h-24 rounded-xl'
           }`
         }
         onMouseEnter={() => { if (isScrolled) setIsLogoExpanded(true); }}
@@ -327,7 +327,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenProject }) => {
         )}
       </div>
 
-      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center bg-white/70 backdrop-blur-md border border-black/5 rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.06)] px-2 py-1.5 max-w-[95vw] sm:max-w-none overflow-x-auto no-scrollbar">
+      <div className="fixed bottom-6 sm:bottom-auto sm:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center bg-white/70 backdrop-blur-md border border-black/5 rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.06)] px-2 py-1.5 max-w-[95vw] sm:max-w-none overflow-x-auto no-scrollbar">
         <GooeyNav
           items={[
             { label: 'Home' },
@@ -392,7 +392,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenProject }) => {
 
       {/* SUB PAGES CONTENT (ABOUT, SKILLS, PROJECTS, CONTACT) */}
       <div className={activeSection !== 'home' ? 'block' : 'hidden'}>
-        <div className="relative z-20 bg-[#ECEAE6] text-black pt-36 pb-16 min-h-[calc(100vh-80px)]">
+        <div className="relative z-20 bg-[#ECEAE6] text-black pt-20 sm:pt-36 pb-24 sm:pb-16 min-h-[calc(100vh-80px)]">
           <main className="max-w-7xl mx-auto px-6">
             <AnimatePresence mode="wait">
               {activeSection === 'about' && (
