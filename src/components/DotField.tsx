@@ -75,7 +75,8 @@ const DotField = memo(({
     }
 
     function doResize() {
-      const rect = canvas.parentElement!.getBoundingClientRect();
+      if (!canvas || !canvas.parentElement) return;
+      const rect = canvas.parentElement.getBoundingClientRect();
       const w = rect.width;
       const h = rect.height;
 
