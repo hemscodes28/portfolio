@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock vs Mine Prediction - Hemkumar R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        /* ============================================
+           EXACT SAME STYLES AS INDEX.HTML
+           Copy the entire CSS from index.html for consistency
+           ============================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-cream: #F0EDEE;
+            --bg-light-mocha: #e6e3e4;
+            --bg-card: #ffffff;
+            --bg-card-hover: #e8e3dd;
+            --text-primary: #2C666E;
+            --text-secondary: #4a7a82;
+            --accent-teal: #2C666E;
+            --accent-mint: #3d8b96;
+            --accent-sage: #7a9b8e;
+            --border-light: #d4d1d2;
+            --border-hover: #9eb5b9;
+            --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease-in-out;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light-mocha) 50%, var(--bg-cream) 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 60px 40px;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* UNIVERSAL CARD - Same as index.html */
+        .card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid var(--border-light);
+            box-shadow: var(--shadow-base);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+        }
+        
+        /* Project Detail Container */
+        .project-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            color: var(--accent-teal);
+            padding-left: 20px;
+        }
+        
+        .back-link::before {
+            content: '← ';
+        }
+        
+        .project-header {
+            margin-bottom: 40px;
+        }
+        
+        .project-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Content Card - Uses universal .card style */
+        .project-content {
+            margin-bottom: 40px;
+        }
+        
+        .section-heading {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--accent-teal);
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        
+        .section-heading:first-child {
+            margin-top: 0;
+        }
+        
+        .project-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .project-content li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .project-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-size: 20px;
+        }
+        
+        /* Action Buttons */
+        .project-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+            background-size: 200% auto;
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-position: right center;
+            box-shadow: 0 8px 20px rgba(44, 102, 110, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 2px solid var(--border-light);
+            box-shadow: var(--shadow-base);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 20px;
+            }
+            
+            .project-title {
+                font-size: 32px;
+            }
+            
+            .project-subtitle {
+                font-size: 18px;
+            }
+            
+            .project-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+
+    <div class="project-container">
+        <!-- Back Link -->
+        <a href="index.html" class="back-link">Back to Portfolio</a>
+
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">Rock vs Mine Prediction</h1>
+            <p class="project-subtitle">
+                A machine learning classification system that analyzes sonar signal patterns to accurately distinguish between rocks and underwater mines, enhancing naval safety and autonomous underwater vehicle navigation.
+            </p>
+        </div>
+
+        <!-- Project Content Card - Uses universal .card style -->
+        <div class="card project-content">
+            <h2 class="section-heading">Problem Statement</h2>
+            <ul>
+                <li>Underwater object detection is critical for naval operations and maritime safety</li>
+                <li>Distinguishing between harmless rocks and dangerous mines is challenging with sonar data</li>
+                <li>Manual interpretation of sonar signals is time-consuming and prone to human error</li>
+                <li>Need for automated, accurate classification to support autonomous underwater vehicles</li>
+                <li>High stakes environment where false negatives (missing mines) can have serious consequences</li>
+            </ul>
+
+            <h2 class="section-heading">What Was Built</h2>
+            <ul>
+                <li>Developed binary classification model using sonar signal frequency patterns</li>
+                <li>Trained machine learning algorithms on historical sonar return data with labeled examples</li>
+                <li>Implemented feature engineering to extract meaningful patterns from raw sonar signals</li>
+                <li>Built model evaluation framework to test accuracy, precision, recall, and F1-score</li>
+                <li>Created data preprocessing pipeline to handle noise and normalize sonar readings</li>
+                <li>Optimized model hyperparameters to maximize classification accuracy</li>
+                <li>Developed prediction interface for real-time sonar signal classification</li>
+            </ul>
+
+            <h2 class="section-heading">Technologies Used</h2>
+            <ul>
+                <li>Python for end-to-end machine learning pipeline development</li>
+                <li>Scikit-learn for implementing classification algorithms (Logistic Regression, SVM, Random Forest)</li>
+                <li>Pandas for data manipulation and preprocessing of sonar datasets</li>
+                <li>NumPy for numerical computations and signal processing</li>
+                <li>Google Colab for model training and experimentation</li>
+                <li>Matplotlib and Seaborn for visualizing classification results and feature importance</li>
+                <li>Model evaluation metrics to ensure robust performance across different scenarios</li>
+            </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="project-actions">
+            <a href="https://github.com/hemscodes28/Sonar-Rock-vs-Mine-Prediction" target="_blank" class="btn btn-primary">
+                View on GitHub
+            </a>
+            <a href="index.html" class="btn btn-secondary">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+</body>
+</html>

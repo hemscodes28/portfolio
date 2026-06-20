@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Train Traffic Control - Hemkumar R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-cream: #F0EDEE;
+            --bg-light-mocha: #e6e3e4;
+            --bg-card: #ffffff;
+            --bg-card-hover: #e8e3dd;
+            --text-primary: #2C666E;
+            --text-secondary: #4a7a82;
+            --accent-teal: #2C666E;
+            --accent-mint: #3d8b96;
+            --accent-sage: #7a9b8e;
+            --border-light: #d4d1d2;
+            --border-hover: #9eb5b9;
+            --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease-in-out;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light-mocha) 50%, var(--bg-cream) 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 60px 40px;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid var(--border-light);
+            box-shadow: var(--shadow-base);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+        }
+        
+        .project-container { max-width: 900px; margin: 0 auto; }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .back-link:hover { color: var(--accent-teal); padding-left: 20px; }
+        .back-link::before { content: '← '; }
+        
+        .project-header { margin-bottom: 40px; }
+        
+        .project-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .project-content { margin-bottom: 40px; }
+        
+        .section-heading {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--accent-teal);
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        
+        .section-heading:first-child { margin-top: 0; }
+        
+        .project-content ul { list-style: none; padding-left: 0; }
+        
+        .project-content li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .project-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-size: 20px;
+        }
+        
+        .project-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+        
+        .btn {
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+            background-size: 200% auto;
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-position: right center;
+            box-shadow: 0 8px 20px rgba(44, 102, 110, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 2px solid var(--border-light);
+            box-shadow: var(--shadow-base);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 40px 20px; }
+            .project-title { font-size: 32px; }
+            .project-subtitle { font-size: 18px; }
+            .project-actions { flex-direction: column; }
+            .btn { text-align: center; }
+        }
+    </style>
+
+    <div class="project-container">
+        <a href="index.html" class="back-link">Back to Portfolio</a>
+
+        <div class="project-header">
+            <h1 class="project-title">AI-Powered Train Traffic Control</h1>
+            <p class="project-subtitle">
+                Maximizing Section Throughput Using AI-Powered Precise Train Traffic Control is a conceptual AI-based approach proposed to improve railway traffic efficiency through predictive scheduling and safety-aware decision support. The solution was presented during the Smart India Hackathon internal round and recognized for its feasibility and system design.
+            </p>
+        </div>
+
+        <div class="card project-content">
+            <h2 class="section-heading">Problem Statement</h2>
+            <ul>
+                <li>Railway networks experience frequent congestion, leading to delays and reduced operational efficiency</li>
+                <li>Traditional signaling systems lack the ability to dynamically optimize train spacing and scheduling in real time</li>
+                <li>Manual traffic control methods are largely reactive, causing cascading delays across interconnected routes</li>
+                <li>There is a need for intelligent, data-driven systems to maximize track utilization while maintaining strict safety protocols</li>
+                <li>Current systems lack predictive capabilities to identify and prevent bottlenecks before they occur</li>
+            </ul>
+
+            <h2 class="section-heading">What Was Built</h2>
+            <ul>
+                <li>Designed an AI-powered conceptual framework to optimize train spacing and scheduling for maximum section throughput</li>
+                <li>Proposed machine learning-based analysis of historical railway traffic data to identify congestion-prone sections</li>
+                <li>Conceptualized a predictive decision-support system to assist railway traffic controllers (IRSCC / IRSTC integration)</li>
+                <li>Designed logic for delay prediction and proactive schedule adjustment recommendations</li>
+                <li>Created system architecture and workflow designs representing AI-assisted railway traffic control</li>
+                <li>Proposed a simulation-based evaluation approach to test multiple traffic scenarios and control strategies</li>
+                <li>Incorporated railway safety regulations and operational constraints into the system design</li>
+                <li>Designed a visualization dashboard concept for monitoring train positions, speeds, and predicted arrival times</li>
+            </ul>
+
+            <h2 class="section-heading">Outcome & Recognition</h2>
+            <ul>
+                <li>Presented as a conceptual AI-based railway traffic control solution during the Smart India Hackathon internal round</li>
+                <li>Secured 3rd place at the department-level internal hackathon based on innovation and feasibility</li>
+                <li>Advanced through presentation and evaluation rounds focusing on system design and AI applicability</li>
+                <li>Project did not proceed to final national implementation, as it was limited to the presentation stage</li>
+            </ul>
+        </div>
+
+        <div class="project-actions">
+            <a href="sih.pdf" target="_blank" class="btn btn-primary">
+                View Certificate
+            </a>
+            <a href="index.html" class="btn btn-secondary">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+</body>
+</html>

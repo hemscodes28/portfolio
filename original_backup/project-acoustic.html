@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acoustic Canopy - Hemkumar R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-cream: #F0EDEE;
+            --bg-light-mocha: #e6e3e4;
+            --bg-card: #ffffff;
+            --bg-card-hover: #e8e3dd;
+            --text-primary: #2C666E;
+            --text-secondary: #4a7a82;
+            --accent-teal: #2C666E;
+            --accent-mint: #3d8b96;
+            --accent-sage: #7a9b8e;
+            --border-light: #d4d1d2;
+            --border-hover: #9eb5b9;
+            --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease-in-out;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light-mocha) 50%, var(--bg-cream) 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 60px 40px;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid var(--border-light);
+            box-shadow: var(--shadow-base);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+        }
+        
+        .project-container { max-width: 900px; margin: 0 auto; }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .back-link:hover { color: var(--accent-teal); padding-left: 20px; }
+        .back-link::before { content: '← '; }
+        
+        .project-header { margin-bottom: 40px; }
+        
+        .project-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .project-content { margin-bottom: 40px; }
+        
+        .section-heading {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--accent-teal);
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        
+        .section-heading:first-child { margin-top: 0; }
+        
+        .project-content ul { list-style: none; padding-left: 0; }
+        
+        .project-content li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .project-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-size: 20px;
+        }
+        
+        .project-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+        
+        .btn {
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+            background-size: 200% auto;
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-position: right center;
+            box-shadow: 0 8px 20px rgba(44, 102, 110, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 2px solid var(--border-light);
+            box-shadow: var(--shadow-base);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 40px 20px; }
+            .project-title { font-size: 32px; }
+            .project-subtitle { font-size: 18px; }
+            .project-actions { flex-direction: column; }
+            .btn { text-align: center; }
+        }
+    </style>
+
+    <div class="project-container">
+        <a href="index.html" class="back-link">Back to Portfolio</a>
+
+        <div class="project-header">
+            <h1 class="project-title">Acoustic Canopy</h1>
+            <p class="project-subtitle">
+                An IoT and Arduino-based environmental sound monitoring system designed to capture, analyze, and visualize acoustic data for ecological research and urban planning applications.
+            </p>
+        </div>
+
+        <div class="card project-content">
+            <h2 class="section-heading">Problem Statement</h2>
+            <ul>
+                <li>Urban areas and natural environments require continuous monitoring of sound levels for environmental assessment</li>
+                <li>Traditional sound monitoring methods are expensive and difficult to deploy at scale</li>
+                <li>Need for real-time acoustic data collection to understand environmental patterns and noise pollution</li>
+                <li>Lack of accessible tools for researchers and city planners to gather comprehensive sound data</li>
+            </ul>
+
+            <h2 class="section-heading">What Was Built</h2>
+            <ul>
+                <li>Developed an Arduino-based sound sensor network capable of capturing ambient noise levels in real-time</li>
+                <li>Implemented IoT connectivity to transmit acoustic data wirelessly to a central monitoring system</li>
+                <li>Created data visualization dashboard to display sound patterns, peak levels, and temporal trends</li>
+                <li>Designed low-power sensor nodes for extended field deployment in remote locations</li>
+                <li>Built calibration system to ensure accurate decibel measurements across different environments</li>
+            </ul>
+
+            <h2 class="section-heading">Technologies Used</h2>
+            <ul>
+                <li>Arduino microcontrollers for sensor data acquisition and processing</li>
+                <li>Sound sensor modules (electret microphones) for acoustic measurement</li>
+                <li>IoT communication protocols (WiFi/LoRa) for wireless data transmission</li>
+                <li>Python for backend data processing and analysis</li>
+                <li>Data visualization libraries for creating real-time monitoring dashboards</li>
+                <li>Cloud storage solutions for acoustic data archival and retrieval</li>
+            </ul>
+        </div>
+
+        <div class="project-actions">
+            <a href="perpetualfest.pdf" target="_blank" class="btn btn-primary">
+                View Certificate
+            </a>
+            <a href="index.html" class="btn btn-secondary">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+</body>
+</html>

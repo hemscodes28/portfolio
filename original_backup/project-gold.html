@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Rate Prediction - Hemkumar R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-cream: #F0EDEE;
+            --bg-light-mocha: #e6e3e4;
+            --bg-card: #ffffff;
+            --bg-card-hover: #e8e3dd;
+            --text-primary: #2C666E;
+            --text-secondary: #4a7a82;
+            --accent-teal: #2C666E;
+            --accent-mint: #3d8b96;
+            --accent-sage: #7a9b8e;
+            --border-light: #d4d1d2;
+            --border-hover: #9eb5b9;
+            --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease-in-out;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light-mocha) 50%, var(--bg-cream) 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 60px 40px;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid var(--border-light);
+            box-shadow: var(--shadow-base);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+        }
+        
+        .project-container { max-width: 900px; margin: 0 auto; }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .back-link:hover { color: var(--accent-teal); padding-left: 20px; }
+        .back-link::before { content: '← '; }
+        
+        .project-header { margin-bottom: 40px; }
+        
+        .project-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .project-content { margin-bottom: 40px; }
+        
+        .section-heading {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--accent-teal);
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        
+        .section-heading:first-child { margin-top: 0; }
+        
+        .project-content ul { list-style: none; padding-left: 0; }
+        
+        .project-content li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .project-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-size: 20px;
+        }
+        
+        .project-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+        
+        .btn {
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-mint));
+            background-size: 200% auto;
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-position: right center;
+            box-shadow: 0 8px 20px rgba(44, 102, 110, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 2px solid var(--border-light);
+            box-shadow: var(--shadow-base);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 40px 20px; }
+            .project-title { font-size: 32px; }
+            .project-subtitle { font-size: 18px; }
+            .project-actions { flex-direction: column; }
+            .btn { text-align: center; }
+        }
+    </style>
+
+    <div class="project-container">
+        <a href="index.html" class="back-link">Back to Portfolio</a>
+
+        <div class="project-header">
+            <h1 class="project-title">Gold Rate Prediction</h1>
+            <p class="project-subtitle">
+                A comprehensive machine learning system that forecasts gold prices using historical market data, economic indicators, and time-series analysis to provide investors with data-driven insights for decision-making.
+            </p>
+        </div>
+
+        <div class="card project-content">
+            <h2 class="section-heading">Problem Statement</h2>
+            <ul>
+                <li>Gold prices are highly volatile and influenced by multiple economic factors</li>
+                <li>Investors need accurate forecasting tools to make informed trading decisions</li>
+                <li>Traditional analysis methods struggle to capture complex patterns in gold price movements</li>
+                <li>Lack of accessible predictive models for retail investors and small-scale traders</li>
+                <li>Need to account for various market factors including currency rates, inflation, and geopolitical events</li>
+            </ul>
+
+            <h2 class="section-heading">What Was Built</h2>
+            <ul>
+                <li>Developed regression models to predict future gold prices based on historical trends</li>
+                <li>Implemented time-series analysis techniques to capture seasonal patterns and trends</li>
+                <li>Built feature engineering pipeline incorporating multiple economic indicators</li>
+                <li>Created data collection system to aggregate gold prices and relevant market variables</li>
+                <li>Trained multiple ML models (Linear Regression, Random Forest, Gradient Boosting) and compared performance</li>
+                <li>Developed visualization tools to display predicted vs actual prices and confidence intervals</li>
+                <li>Implemented model evaluation using metrics like RMSE, MAE, and R-squared</li>
+            </ul>
+
+            <h2 class="section-heading">Technologies Used</h2>
+            <ul>
+                <li>Python for complete data science pipeline and model development</li>
+                <li>Pandas for data manipulation, cleaning, and time-series handling</li>
+                <li>NumPy for numerical operations and statistical calculations</li>
+                <li>Scikit-learn for regression algorithms and model evaluation</li>
+                <li>Google Colab for model training and experimentation environment</li>
+                <li>Matplotlib and Seaborn for creating insightful visualizations of price trends</li>
+                <li>Time-series libraries for capturing temporal dependencies in gold prices</li>
+                <li>Data preprocessing techniques for handling missing values and feature scaling</li>
+            </ul>
+        </div>
+
+        <div class="project-actions">
+            <a href="https://github.com/hemscodes28/Gold-Rate-Prediction" target="_blank" class="btn btn-primary">
+                View on GitHub
+            </a>
+            <a href="index.html" class="btn btn-secondary">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+</body>
+</html>

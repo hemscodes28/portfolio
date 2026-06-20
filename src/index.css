@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Instrument+Serif:ital@1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 201 100% 10%; /* Deep navy background for portfolio */
+    --foreground: 0 0% 100%; /* Pure white */
+    
+    --muted: 201 80% 8%;
+    --muted-foreground: 240 4% 75%; /* Soft gray */
+    
+    --primary: 48 22% 83%; /* #DEDBC8 warm cream HSL approximation */
+    --primary-foreground: 201 100% 10%;
+    
+    --secondary: 201 50% 15%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 201 60% 18%;
+    --accent-foreground: 0 0% 100%;
+    
+    --border: 201 40% 18%;
+    --input: 201 40% 18%;
+    
+    --card: 201 60% 12%;
+    --card-foreground: 0 0% 100%;
+    
+    --font-display: 'Almarai', sans-serif;
+    --font-body: 'Almarai', sans-serif;
+    
+    --radius: 1rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Almarai', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+body {
+  background-color: #000000; /* Dark global background */
+  color: #E1E0CC;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #212121;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(222, 219, 200, 0.3);
+}
+
+/* Custom Scrollbar for Project Modal */
+.modal-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.015);
+  border-radius: 9999px;
+  margin: 12px 6px;
+}
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00bfff 0%, #0077aa 100%);
+  border-radius: 9999px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #33ccff 0%, #0099dd 100%);
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.35);
+}
+
+/* Noise Overlays */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Liquid Glass Effect */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.015);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Times New Roman Typography Enforcer */
+.font-times, .font-times * {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+/* Playfair Display Typography */
+.font-playfair, .font-playfair * {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+/* Mainframe CSS Font Variables & Scoped Selectors */
+:root {
+  --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'HelveticaNowDisplayW01-Rg', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.mainframe-theme {
+  font-family: var(--font-body);
+}
+
+.mainframe-theme, .mainframe-theme * {
+  font-family: var(--font-body);
+}
+
+.font-mainframe-heading, .font-mainframe-heading * {
+  font-family: var(--font-heading) !important;
+}
+
+/* Typewriter blink cursor animation */
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

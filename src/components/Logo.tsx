@@ -1,0 +1,98 @@
+import React from 'react';
+
+interface LogoProps {
+  onClick?: () => void;
+  className?: string;
+}
+
+export const Logo: React.FC<LogoProps> = ({ onClick, className }) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`focus:outline-none transition-transform duration-300 hover:scale-105 active:scale-95 ${className}`}
+      aria-label="Hemkumar Logo"
+    >
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full drop-shadow-sm"
+      >
+        {/* Invisible path for curved bottom text */}
+        <defs>
+          <path
+            id="logo-text-path"
+            d="M 15,54 A 35,35 0 0,0 85,54"
+            fill="none"
+          />
+        </defs>
+
+        {/* Top Text "HR" */}
+        <text
+          x="50"
+          y="23"
+          textAnchor="middle"
+          fill="#2C3E50"
+          fontSize="15.5"
+          fontWeight="900"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          letterSpacing="1"
+        >
+          HR
+        </text>
+
+        {/* Sunglasses Frame (Shutter Shades) */}
+        {/* Top Bar */}
+        <rect x="22" y="32" width="56" height="3.5" rx="1.5" fill="#2C3E50" />
+        
+        {/* Left Frame */}
+        <rect x="24" y="35" width="22" height="14" rx="4" fill="none" stroke="#2C3E50" strokeWidth="3" />
+        
+        {/* Right Frame */}
+        <rect x="54" y="35" width="22" height="14" rx="4" fill="none" stroke="#2C3E50" strokeWidth="3" />
+        
+        {/* Bridge */}
+        <path d="M 46,37.5 Q 50,35.5 54,37.5" fill="none" stroke="#2C3E50" strokeWidth="3" />
+        
+        {/* Left Temple Wing */}
+        <path d="M 24,34 Q 19,34 17,38" fill="none" stroke="#2C3E50" strokeWidth="2.5" strokeLinecap="round" />
+        
+        {/* Right Temple Wing */}
+        <path d="M 76,34 Q 81,34 83,38" fill="none" stroke="#2C3E50" strokeWidth="2.5" strokeLinecap="round" />
+
+        {/* Shutter lines (stripes) */}
+        {/* Left lens lines */}
+        <line x1="25.5" y1="38" x2="44.5" y2="38" stroke="#2C3E50" strokeWidth="1.8" />
+        <line x1="25.5" y1="41" x2="44.5" y2="41" stroke="#2C3E50" strokeWidth="1.8" />
+        <line x1="26.5" y1="44" x2="43.5" y2="44" stroke="#2C3E50" strokeWidth="1.8" />
+        <line x1="28.5" y1="47" x2="41.5" y2="47" stroke="#2C3E50" strokeWidth="1.8" />
+
+        {/* Right lens lines */}
+        <line x1="55.5" y1="38" x2="74.5" y2="38" stroke="#2C3E50" strokeWidth="1.8" />
+        <line x1="55.5" y1="41" x2="74.5" y2="41" stroke="#2C3E50" strokeWidth="1.8" />
+        <line x1="56.5" y1="44" x2="73.5" y2="44" stroke="#2C3E50" strokeWidth="1.8" />
+        <line x1="58.5" y1="47" x2="71.5" y2="47" stroke="#2C3E50" strokeWidth="1.8" />
+
+        {/* U-Shape / Smile */}
+        <path
+          d="M 34,54 A 16,16 0 0,0 66,54 h 8 A 24,24 0 0,1 26,54 Z"
+          fill="#b08257"
+        />
+
+        {/* Curved Text "H E M K U M A R" */}
+        <text
+          fill="#2C3E50"
+          fontSize="7.5"
+          fontWeight="bold"
+          fontFamily="system-ui, -apple-system, sans-serif"
+        >
+          <textPath href="#logo-text-path" startOffset="50%" textAnchor="middle">
+            H E M K U M A R
+          </textPath>
+        </text>
+      </svg>
+    </button>
+  );
+};
