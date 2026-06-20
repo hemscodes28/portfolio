@@ -29,27 +29,23 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onBeginJourney }) => {
       {/* Gradient overlay */}
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/30 via-transparent to-black/60 pointer-events-none" />
 
-      {/* Centered Top Text (Above the person sitting in the video) */}
-      <div className="absolute top-[22%] left-1/2 -translate-x-1/2 w-full max-w-3xl px-6 text-center z-20 pointer-events-none">
+      {/* Centered Typography Header Container (Heading + Subtitle) */}
+      <div className="absolute top-[10%] sm:top-[16%] left-1/2 -translate-x-1/2 w-full max-w-4xl px-6 text-center z-20 pointer-events-none flex flex-col items-center space-y-4 sm:space-y-6">
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-wide text-[#E1E0CC] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] font-serif"
+          className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-wide text-[#E1E0CC] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] font-serif leading-tight"
         >
           Hem invites you beyond the clouds.
         </h1>
-      </div>
-
-      {/* Centered Bottom Text (Below the person sitting in the video) */}
-      <div className="absolute bottom-[30%] left-1/2 -translate-x-1/2 w-full max-w-3xl px-6 text-center z-20 pointer-events-none">
         <p 
-          className="text-lg sm:text-xl md:text-2xl font-normal text-[#E1E0CC]/80 drop-shadow-[0_3px_8px_rgba(0,0,0,0.8)] font-serif italic"
+          className="text-base sm:text-xl md:text-2xl font-normal text-[#E1E0CC]/85 drop-shadow-[0_3px_8px_rgba(0,0,0,0.8)] font-serif italic"
         >
           Where ideas take flight and innovation knows no limits.
         </p>
       </div>
 
-      {/* INNOVATIVE IDE CODE EDITOR WIDGET (Bottom Right Corner) */}
+      {/* INNOVATIVE IDE CODE EDITOR WIDGET (Centered on Mobile, Bottom-Right on Desktop) */}
       <div 
-        className="!absolute bottom-6 right-6 sm:bottom-12 sm:right-12 z-20 w-[300px] sm:w-[350px] rounded-2xl liquid-glass border border-white/10 shadow-3xl overflow-hidden flex flex-col font-times"
+        className="!absolute bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-12 sm:bottom-12 z-20 w-[90vw] sm:w-[350px] rounded-2xl liquid-glass border border-white/10 shadow-3xl overflow-hidden flex flex-col font-times"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
